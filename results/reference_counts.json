@@ -1,0 +1,26 @@
+{
+  "provenance": "Reported counts from author-provided experiment notes; not a fresh run.",
+  "shared_corpus": [
+    {
+      "inserted_documents": 160,
+      "all_queries": 2244,
+      "asr_percent": 14.75,
+      "covered_successes": 141,
+      "covered_queries": 160
+    },
+    {
+      "inserted_documents": 640,
+      "all_queries": 2244,
+      "asr_percent": 31.19,
+      "covered_successes": 556,
+      "covered_queries": 640
+    },
+    {
+      "inserted_documents": 2244,
+      "all_queries": 2244,
+      "asr_percent": 82.62,
+      "covered_successes": 1854,
+      "covered_queries": 2244
+    }
+  ]
+}

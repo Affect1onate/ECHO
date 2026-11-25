@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "origins": [
+    {
+      "path": "exclusion_inversion/source_quarantine_defense_20261027.py",
+      "sha256": "3c36126e757d8ff04f9330852e7bee24822618acffe8f347cedaf7b22f847320"
+    },
+    {
+      "path": "manuscript/standalone_scaling_figure/plot_sample_size_scaling.py",
+      "sha256": "0c89b3e85618806aba43592f20367830337fec7162f89e4e7184f35125dea848"
+    },
+    {
+      "path": "exclusion_inversion/adaptive_binding_constructor_v2.py",
+      "sha256": "1ae17309e30b057580144925bdd3f4e58cfe83ef079b6bf002a3236c7b799000"
+    },
+    {
+      "path": "exclusion_inversion/gemma_template_coupling_20261027.py",
+      "sha256": "6d298c90a20a60c3ff99a30637b2fe8ce9f849b6e7897c63ce746b3a3a31d8c5"
+    }
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "1399098e3d74d04e70cf1b455514d5fc31e111ab0aac487b73ba11a8f273970d"
+    },
+    {
+      "path": "docs/ablation.md",
+      "sha256": "7c9984a47c636477e273c672f2a423cf722f39a1d9154363450ddaeb47892fb4"
+    },
+    {
+      "path": "docs/corpus_checks.md",
+      "sha256": "8fda001a5093a1595678c387a95b9b5840ca9d6b212941613f6703606673d052"
+    },
+    {
+      "path": "docs/defense.md",
+      "sha256": "8304e375e8a1ce0542cbfe24ecb960900c0f3cc08a6cc98e91fb1907007fce5a"
+    },
+    {
+      "path": "docs/evaluation.md",
+      "sha256": "a30cb61d78f5da81e9261a62b9c80d0da8a1530097bf72e76f7f9778a9904be5"
+    },
+    {
+      "path": "docs/reproduction.md",
+      "sha256": "063be5b736654214df04ea04e74d40f8cac6e6513914a2d020cb59f3bb19aa29"
+    },
+    {
+      "path": "docs/research_practices.md",
+      "sha256": "f8a1a9342ce12b91a8b4adc24234f57c0831eaa292aa0236c8398d1138021d00"
+    },
+    {
+      "path": "examples/inspect_sources.py",
+      "sha256": "176c74b13967ef841917701fd3ffb764e0613bffa594e0568bce442edf98cb78"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c42ff4cd267aec8cc21520704516e6b15e94d680e1463d8a90e91eca4aab246d"
+    },
+    {
+      "path": "requirements-plot.txt",
+      "sha256": "b1357ae6a5a36c25ee9068241225869c736cf9b0720622a0212918a681034be6"
+    },
+    {
+      "path": "results/reference_counts.json",
+      "sha256": "ccd34c9ac48a60258af6162e0f1a0e4b136af9efd56d65f0d5bcc8e7f0978651"
+    },
+    {
+      "path": "scripts/plot_sample_size_scaling.py",
+      "sha256": "0c89b3e85618806aba43592f20367830337fec7162f89e4e7184f35125dea848"
+    },
+    {
+      "path": "src/__init__.py",
+      "sha256": "642b4868fb50b4be675baaca72de6e0e9ccc4863593e126ee777a888300ff057"
+    },
+    {
+      "path": "src/constructor.py",
+      "sha256": "eb02bcfef4addc55e388034bc67f4186ce95fe9dd3f3bd607c93b8247269b905"
+    },
+    {
+      "path": "src/source_quarantine.py",
+      "sha256": "3c36126e757d8ff04f9330852e7bee24822618acffe8f347cedaf7b22f847320"
+    },
+    {
+      "path": "tools/check_artifact.py",
+      "sha256": "8ac269f8f47a648ca0bcc056da3e23ad4749ee340029f02c33f39399ac4af8df"
+    }
+  ]
+}
