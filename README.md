@@ -26,7 +26,7 @@ Both Python commands use only the standard library and require no model weights 
 | Integrity checks | [Artifact checker](tools/check_artifact.py) | SHA256 and syntax checks |
 | Experiment instructions | [Reproduction guide](docs/reproduction.md) | Inputs, protocols, and release status |
 
-**Release scope:** this initial package supports the examples and inspection checks above. Full GPU experiment drivers, frozen query/document bundles, retrieval caches, and per-query response records are not included yet. Consequently it is not a complete end-to-end reproduction package. Reference counts are reported outputs, not newly executed experiments.
+**Release scope:** this initial package supports the examples and inspection checks above.
 
 ## Implementation and reproduction guides
 
