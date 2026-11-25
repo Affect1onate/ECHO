@@ -1,42 +1,31 @@
-# Corpus and query experiment recipes
+# Corpus and query run configuration
+
+These instructions specify inputs and checks for the corpus/query experiments reported in the paper. Full drivers and frozen inputs are not yet bundled; they are not executable commands for this initial package.
+
+## Shared document collection
+
+1. Load the same 90,406-document clean corpus and the frozen pool of 2,244 attack documents.
+2. Form nested insertion budgets of 160, 640, and 2,244 using the saved ordering. Index all documents at each budget together.
+3. Evaluate all 2,244 queries at every budget using natural top-five contexts. Do not reuse isolated-injection ranks.
+4. Record the query's designated target, its designated attack ID, all retrieved injected IDs, and the generated response.
+5. Aggregate overall ASR over all queries and covered-query ASR over queries whose designated attack was inserted. Both denominators include retrieval misses. Track other injected targets separately; they do not automatically violate the current query's exclusion.
+
+The published aggregate counts used for arithmetic checks are in [reference_counts.json](../results/reference_counts.json). They are reference outputs, not per-query evidence or a replacement for rerunning inference.
+
+## Query rewritings
+
+Use the saved 152 eligible query IDs and three checked rewritings per original query. Preserve the information need and excluded entity. Freeze each attack document across all its rewritings. Generate both clean and attacked responses. Store `original_query_id` alongside each rewritten query and resample by original query when computing paired uncertainty.
 
 ## Source access
 
-Inputs: matched 160 queries, complete victim corpus, source-selection pool, frozen generator settings. Compare the paired source, first clean E5-Mistral result without relevance labels, and first eligible result after withholding all 160 paired positives from the attacker's source pool. The victim corpus stays complete. Source selection adds one retrieval call outside document assembly.
-
-Expected attack top-five hits / Gemma successes: paired source 158/143; retrieval-selected source 159/132; all paired positives withheld 155/131. Clean excluded responses: 7/160. These are reported reference counts.
-
-## Query rewriting
-
-Select 152 queries with clear information needs and exclusions, check three rewritings per query before attack evaluation, and freeze attack documents. Preserve the excluded entity and information need. Group uncertainty calculations by original query.
-
-Expected E5-Mistral/Gemma counts: original 136/152; rewritings 395/456; clean rewritings 31/456. A separate target-unspecified universal document reaches top five on 0/160 queries. This control does not establish reuse against unknown targets.
-
-## Shared corpus
-
-Add nested pools of 160, 640, and 2,244 frozen documents to the same 90,406-document corpus; evaluate all 2,244 queries at each budget with natural top-five contexts. Do not reuse isolated-injection ranks for this experiment.
-
-| Inserted documents | Overall ASR (%) | Successes / queries with designated document inserted |
-|---|---:|---:|
-| 160 | 14.75 | 141/160 |
-| 640 | 31.19 | 556/640 |
-| 2,244 | 82.62 | 1,854/2,244 |
-
-Clean ETR is 8.73%. The covered-query denominators include retrieval misses. At the largest budget the designated attack reaches top five for 2,210 queries. Among 253 contexts containing different injected targets, responses return the designated target in 60 cases, another visible injected target in 158, and neither in 35. Count only the query's designated target toward ASR.
+Keep the victim corpus complete. Compare the paired source with the first eligible clean E5-Mistral result, optionally withholding all 160 paired positive passages from the attacker's source-selection pool. Save the pool definition, selected document ID, and source retrieval cost separately from document assembly cost.
 
 ## Chunking and preprocessing
 
-Use BM25/Gemma and 160 matched queries. Apply each operation uniformly to clean and injected documents. Insert all chunks of a single attack document together; recalculate BM25 statistics. Retrieve five chunks without parent merging. Preserve internal whitespace when chunking.
+Use BM25/Gemma on the matched 160 queries. Apply each operation uniformly to the clean corpus and injected documents. Preserve internal whitespace for chunking. For every query, insert all chunks of its single attack document together and recompute BM25 corpus statistics. Retrieve five chunks without merging parents.
 
-| Words/chunk | Overlap | ASR (%) | Clean ETR (%) |
-|---|---:|---:|---:|
-| 64 | 0% | 72.50 | 5.63 |
-| 64 | 25% | 58.13 | 5.63 |
-| 128 | 0% | 85.00 | 6.25 |
-| 128 | 25% | 84.38 | 6.88 |
-| 256 | 0% | 84.38 | 6.88 |
-| 256 | 25% | 84.38 | 6.88 |
+Configuration grid: chunk sizes 64, 128, and 256 words, each with 0% or 25% overlap. Keep parent document IDs and chunk offsets to inspect duplicate-parent exposure. Run the clean condition under the same processing configuration.
 
-All six gains survive Holm correction across eleven conditions. Whole-document reference ASR/ETR is 83.75/6.88. Two HTML decoding rounds, NFKC, and whitespace normalization preserve these values. Exact normalized-document deduplication removes no documents. Compression of adjacent repeated token blocks (lengths 1–12) gives 82.50/7.50. Removing specified chat boundaries and standalone role labels gives 8.75/6.88, without significant gain. All four processing checks retain 152 attack hits. Rebuilding the unchanged BM25 index reproduces 160/160 hit decisions; this is a static consistency check, not a longitudinal deployment test.
+Other processing configurations use two HTML decoding rounds followed by NFKC/whitespace normalization, exact normalized-document deduplication, compression of adjacent repeated token blocks of lengths 1–12, or removal of the specified message-boundary and standalone-role patterns. Preserve the exact patterns with the run configuration rather than substituting an arbitrary sanitizer.
 
-Inspect both clean and attacked results: overlapping chunks can occupy several positions, changing clean evidence even before injection. Reference BM25Okapi agreement on small multi-insertion cases is within 1e-10.
+Save retrieved chunk IDs, parent IDs, ranks, processing configuration, prompt hash, and success label. Verify BM25 insertion scoring against a small reference BM25Okapi case before a full run. Index rebuilding with unchanged data is an index-consistency check, not a longitudinal experiment.

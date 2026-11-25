@@ -2,7 +2,7 @@
 
 **Training-free RAG Poisoning via Fixed Templates and Coupled Requests**
 
-Code and experiment documentation for studying targeted corpus poisoning against explicit user exclusions in retrieval-augmented generation (RAG).
+Code and implementation instructions for studying targeted corpus poisoning against explicit user exclusions in retrieval-augmented generation (RAG).
 
 ECHO constructs a document from relevant source text, repeated title words, and an answer statement, then adds a forged request. Retrieval determines whether the document reaches the generator. Source quarantine inspects retrieved documents and replenishes the context from saved candidates.
 
@@ -29,18 +29,18 @@ The first two commands after cloning use only the Python standard library. The p
 | Integrity checks | [Artifact checker](tools/check_artifact.py) | SHA256 and syntax checks |
 | Experiment instructions | [Reproduction guide](docs/reproduction.md) | Inputs, protocols, and release status |
 
-**Release scope:** this initial package supports the examples, inspection checks, and figure reconstruction above. Full GPU experiment drivers, frozen query/document bundles, retrieval caches, and per-query response records are not included yet. Consequently it is not a complete end-to-end reproduction package. Aggregate reference values in the documentation are reported results, not newly executed experiments.
+**Release scope:** this initial package supports the examples, inspection checks, and figure reconstruction above. Full GPU experiment drivers, frozen query/document bundles, retrieval caches, and per-query response records are not included yet. Consequently it is not a complete end-to-end reproduction package. Embedded plotting data and reference counts are reported outputs, not newly executed experiments.
 
-## Experiment documentation
+## Implementation and reproduction guides
 
 - [Environment, inputs, and execution order](docs/reproduction.md)
 - [Evaluation and baseline configuration](docs/evaluation.md)
 - [Shared corpora, source access, and document processing](docs/corpus_checks.md)
 - [Position, component, and request controls](docs/ablation.md)
 - [Defense verification](docs/defense.md)
-- [Research scope and artifact provenance](docs/research_practices.md)
+- [Artifact provenance and reuse](docs/research_practices.md)
 
-These documents explain implementation and result verification. The paper contains the scientific argument and core evidence; the repository is not an extended paper.
+The guides cover required inputs, configuration, execution order, output records, and verification checks. Scientific findings and discussion are in the paper.
 
 ## Reported full-query results
 

@@ -1,9 +1,9 @@
-# Research scope and provenance
+# Artifact provenance and reuse
 
-Reported experiments use local benchmark corpora and model checkpoints. The procurement example is illustrative; no financial transaction or deployed procurement service is attacked. No vendor notification or coordinated disclosure has been completed. The paired defense evaluation measures attack reduction and preservation of clean evidence under the tested settings.
+`manifest.json` records SHA256 hashes for packaged files and the original source files used for portable components. Provenance paths are relative source labels, not machine-specific runnable paths.
 
-Generative AI assisted experimental scripts, analysis of saved outputs, and writing. Authors remain responsible for experimental design, interpretations, citations, and released artifacts.
+The quarantine module is an unchanged source copy. The constructor is a portable extraction of the fixed core and Gemma `native_statement_record` variant, not every frozen model configuration. The plotting script embeds measured aggregates and does not perform inference.
 
-This repository distributes portable code components and experiment instructions. It does not distribute upstream models, corpus text, credentials, or private API experiment records. DeepSeek exploratory runs are outside the paper and are not included. Dataset/model licenses must be respected; a repository-wide software license has not yet been selected.
+Model checkpoints, upstream corpus text, private credentials, and exploratory API records are not distributed. Obtain models and data from their providers under the applicable licenses. A repository-wide software license has not yet been selected.
 
-`manifest.json` records hashes of packaged files and the original source files used for the portable components. Source paths are relative provenance labels, not runnable local machine paths. Refer to the README for current availability; the repository does not claim that unpublished frozen inputs are already downloadable.
+See the [reproduction guide](reproduction.md) for required inputs and current availability. Unpublished frozen inputs are not downloadable from this initial package.
