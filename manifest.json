@@ -6,10 +6,6 @@
       "sha256": "3c36126e757d8ff04f9330852e7bee24822618acffe8f347cedaf7b22f847320"
     },
     {
-      "path": "manuscript/standalone_scaling_figure/plot_sample_size_scaling.py",
-      "sha256": "0c89b3e85618806aba43592f20367830337fec7162f89e4e7184f35125dea848"
-    },
-    {
       "path": "exclusion_inversion/adaptive_binding_constructor_v2.py",
       "sha256": "1ae17309e30b057580144925bdd3f4e58cfe83ef079b6bf002a3236c7b799000"
     },
@@ -41,11 +37,11 @@
     },
     {
       "path": "docs/reproduction.md",
-      "sha256": "063be5b736654214df04ea04e74d40f8cac6e6513914a2d020cb59f3bb19aa29"
+      "sha256": "8d136015600d239b9f7771056fc2e619f85993511520d33719955324902c0463"
     },
     {
       "path": "docs/research_practices.md",
-      "sha256": "67427e8a7418fcfba70b2b189dcb7611e8581af6b0d7538ceddbace86c988712"
+      "sha256": "133e49f6f6ac6889aacf12dedd1f315f79d4dfeda2a86335a1da593eb7880715"
     },
     {
       "path": "examples/inspect_sources.py",
@@ -53,19 +49,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "5174be44de743cecd9a7dcec674a7e772b57646018876cc1a91c8ec336b315b4"
-    },
-    {
-      "path": "requirements-plot.txt",
-      "sha256": "b1357ae6a5a36c25ee9068241225869c736cf9b0720622a0212918a681034be6"
+      "sha256": "f8e70555861a33b10a2d119660bcf0c85ff00394743225b7ec6aab5efe404b90"
     },
     {
       "path": "results/reference_counts.json",
       "sha256": "ccd34c9ac48a60258af6162e0f1a0e4b136af9efd56d65f0d5bcc8e7f0978651"
-    },
-    {
-      "path": "scripts/plot_sample_size_scaling.py",
-      "sha256": "0c89b3e85618806aba43592f20367830337fec7162f89e4e7184f35125dea848"
     },
     {
       "path": "src/__init__.py",

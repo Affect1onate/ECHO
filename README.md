@@ -13,23 +13,20 @@ git clone https://github.com/Affect1onate/ECHO.git
 cd ECHO
 python tools/check_artifact.py
 python examples/inspect_sources.py
-python -m pip install -r requirements-plot.txt
-python scripts/plot_sample_size_scaling.py --output-dir figures
 ```
 
-The first two commands after cloning use only the Python standard library. The plotting command reconstructs the scaling figure from embedded measured results; it does not rerun retrieval or model inference.
+Both Python commands use only the standard library and require no model weights or GPU.
 
 ## What is included
 
 | Component | Entry point | Status |
 |---|---|---|
-| Figure reproduction | [Scaling plot](scripts/plot_sample_size_scaling.py) | Standalone; measured aggregates embedded |
 | Source quarantine | [Inspection and filtering](src/source_quarantine.py) | Original rule implementation |
 | Fixed document construction | [Core and Gemma request](src/constructor.py) | Portable extraction; selected Gemma variant only |
 | Integrity checks | [Artifact checker](tools/check_artifact.py) | SHA256 and syntax checks |
 | Experiment instructions | [Reproduction guide](docs/reproduction.md) | Inputs, protocols, and release status |
 
-**Release scope:** this initial package supports the examples, inspection checks, and figure reconstruction above. Full GPU experiment drivers, frozen query/document bundles, retrieval caches, and per-query response records are not included yet. Consequently it is not a complete end-to-end reproduction package. Embedded plotting data and reference counts are reported outputs, not newly executed experiments.
+**Release scope:** this initial package supports the examples and inspection checks above. Full GPU experiment drivers, frozen query/document bundles, retrieval caches, and per-query response records are not included yet. Consequently it is not a complete end-to-end reproduction package. Reference counts are reported outputs, not newly executed experiments.
 
 ## Implementation and reproduction guides
 
